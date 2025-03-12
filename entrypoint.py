@@ -40,7 +40,7 @@ if __name__ == "__main__":
     data = parse_data(DATA_PATH)
 
     #TODO:change this strategy as you see fit
-    strategy = StrategyVanilla()
+    strategy = StrategyVanilla(data=data)
     strategy.init_agents()
     
     input_hist, response_hist = interact_loop(strategy)
