@@ -22,7 +22,7 @@ class StrategyVanilla(Strategy):
         # risk_expert_instruction = instructions['risk_expert'].format(report = self.data['report'])
         # biz_expert_instruction = instructions['biz_expert'].format(report = self.data['report'])
 
-        self.supervisor = AgentLlama3(sys_instruction=supervisor_instruction)
+        self.supervisor = AgentLlama3()
         # self.experts['risk'] = AgentLlama3(sys_instruction=risk_expert_instruction)
         # self.experts['business'] = AgentLlama3(sys_instruction=biz_expert_instruction)
     

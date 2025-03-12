@@ -15,7 +15,7 @@ class AgentLlama3(Agent):
     #Currently not aware of past interactions
     def ask(self, sys_instruction, question):
         current_interaction = AgentLlama3.INTERACTION_PROMPT_FORMAT.format(user_prompt=question)
-        outputs = self.model.generate(prompts=[AgentLlama3.SYSTEM_PROMPT_FORMAT.format(sys_instruction) + current_interaction], sampling_params=self.sp)
+        outputs = self.model.generate(prompts=[AgentLlama3.SYSTEM_PROMPT_FORMAT.format(system_instruction=sys_instruction) + current_interaction], sampling_params=self.sp)
         response = outputs[0].outputs[0].text
 
         self.input_hist.append(question)

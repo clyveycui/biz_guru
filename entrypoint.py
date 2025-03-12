@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     #TODO:change this strategy as you see fit
     strategy = StrategyVanilla(data=data)
-    strategy.init_agents()
+    strategy.init_agent_workers()
     
     input_hist, response_hist = interact_loop(strategy)
     if not HIST_PATH is None:
