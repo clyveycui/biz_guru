@@ -1,4 +1,4 @@
-from strategies import Strategy
+from strategy import Strategy
 from agents import AgentLlama3
 import json
 
