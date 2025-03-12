@@ -1,5 +1,5 @@
 from vllm import LLM, SamplingParams
-from agent import Agent
+from .agent import Agent
 
 class AgentLlama3(Agent):
     SYSTEM_PROMPT_FORMAT= "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_instruction}"
@@ -18,7 +18,7 @@ class AgentLlama3(Agent):
         current_interaction = AgentLlama3.INTERACTION_PROMPT_FORMAT.format(user_prompt=question)
         outputs = self.model.generate(prompts=[self.sys_prompt + current_interaction], sampling_params=self.sp)
         response = outputs[0].outputs[0].text
-        
+
         self.input_hist.append(question)
         self.output_hist.append(response)
         return response
