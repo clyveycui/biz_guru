@@ -1,4 +1,4 @@
-from strategies import Strategy
+from strategies import StrategyVanilla
 from argparse import ArgumentParser
 
 def ask_question(strategy, question):
@@ -8,6 +8,7 @@ def interact_loop(strategy):
     input_hist = []
     response_hist = [] 
     while(True):
+        user_input = input("Query: ")
         input_hist.append(user_input)
         user_input = user_input.lower().strip()
         if user_input == "exit":
@@ -15,12 +16,14 @@ def interact_loop(strategy):
             break
         else:
             response = ask_question(strategy, user_input)
+            print(f"Response:\n{response}")
             response_hist.append(response)
+
     return input_hist, response_hist
 
 #TODO
 def parse_data(data_path):
-    data = {"body" : "10k report here, etc."}
+    data = {"report" : "10k report here, etc."}
     return data
 
 
@@ -37,7 +40,8 @@ if __name__ == "__main__":
     data = parse_data(DATA_PATH)
 
     #TODO:change this strategy as you see fit
-    strategy = Strategy()
+    strategy = StrategyVanilla()
+    strategy.init_agents()
     
     input_hist, response_hist = interact_loop(strategy)
     if not HIST_PATH is None:
